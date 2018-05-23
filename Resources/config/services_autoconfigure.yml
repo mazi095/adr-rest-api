@@ -1,0 +1,4 @@
+#services:
+#    _instanceof:
+#        Mazi\AdrRestApi\Action\ActionInterface:
+#            tags: ['controller.service_arguments', 'route.annotation']

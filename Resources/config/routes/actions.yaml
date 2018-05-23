@@ -1,0 +1,3 @@
+mazi_adr_rest_api_actions:
+    resource: 'action_route_loader:loadRoutes'
+    type: serivce
