@@ -8,11 +8,20 @@
     "doctrine/common": {
         "version": "v2.8.1"
     },
+    "doctrine/event-manager": {
+        "version": "v1.0.0"
+    },
     "doctrine/inflector": {
         "version": "v1.3.0"
     },
     "doctrine/instantiator": {
         "version": "1.1.0"
+    },
+    "doctrine/persistence": {
+        "version": "v1.0.0"
+    },
+    "doctrine/reflection": {
+        "version": "v1.0.0"
     },
     "jms/metadata": {
         "version": "1.6.0"
@@ -109,6 +118,9 @@
     },
     "symfony/lts": {
         "version": "4-dev"
+    },
+    "symfony/polyfill-ctype": {
+        "version": "v1.9.0"
     },
     "symfony/polyfill-mbstring": {
         "version": "v1.8.0"
