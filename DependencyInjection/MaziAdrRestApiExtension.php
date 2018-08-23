@@ -36,8 +36,5 @@ class MaziAdrRestApiExtension extends Extension
         $container->registerForAutoconfiguration(ActionInterface::class)
             ->addTag('controller.service_arguments')
             ->addTag('route.annotation');
-
-//        $loader = new YamlFileLoader($container, new FileLocator(\dirname(__DIR__).'/config'));
-//        $loader->load('services_autoconfigure.yml');
     }
 }
