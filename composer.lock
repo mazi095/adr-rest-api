@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7b65b6b518a6241d8598b24c4138aa99",
+    "content-hash": "843882a769240d33e67acf2c25ce51ea",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2532,16 +2532,16 @@
         },
         {
             "name": "zircote/swagger-php",
-            "version": "3.x-dev",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zircote/swagger-php.git",
-                "reference": "26c9e75fdec48aa07ed7d6dc255ad2fa10250ece"
+                "reference": "67f517375c0c8180bf2c09dbad6f305524cff2ab"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/26c9e75fdec48aa07ed7d6dc255ad2fa10250ece",
-                "reference": "26c9e75fdec48aa07ed7d6dc255ad2fa10250ece",
+                "url": "https://api.github.com/repos/zircote/swagger-php/zipball/67f517375c0c8180bf2c09dbad6f305524cff2ab",
+                "reference": "67f517375c0c8180bf2c09dbad6f305524cff2ab",
                 "shasum": ""
             },
             "require": {
@@ -2591,7 +2591,7 @@
                 "rest",
                 "service discovery"
             ],
-            "time": "2018-08-12T15:43:11+00:00"
+            "time": "2018-08-16T06:06:29+00:00"
         }
     ],
     "packages-dev": [
@@ -2829,7 +2829,6 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "symfony/lts": 20,
-        "zircote/swagger-php": 20,
         "roave/security-advisories": 20
     },
     "prefer-stable": false,
