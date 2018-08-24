@@ -1,5 +1,5 @@
 {
-    "type": "Bundle",
+    "type": "symfony-bundle",
     "name": "mazi095/adr-rest-api",
     "discription": "Action-Domain-Responder API with swagger documentation for symfony framework",
     "authors": [
