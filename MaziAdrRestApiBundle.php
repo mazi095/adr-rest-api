@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Mazi\AdrRestApi;
 
-use Mazi\AdrRestApi\Action\ActionInterface;
 use Mazi\AdrRestApi\DependencyInjection\MaziAdrRestApiExtension;
 use MiddleOffice\DependencyInjection\ActionsRouteAnnotationsPass;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
