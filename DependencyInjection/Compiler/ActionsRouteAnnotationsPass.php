@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Mazi\AdrRestApi\DependencyInjection;
+namespace Mazi\AdrRestApi\DependencyInjection\Compiler;
 
 use Mazi\AdrRestApi\Action\ActionLoader;
 use Mazi\AdrRestApi\Action\ActionInterface;
