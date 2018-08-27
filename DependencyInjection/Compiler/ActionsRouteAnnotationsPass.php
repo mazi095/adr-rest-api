@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MiddleOffice\DependencyInjection;
+namespace Mazi\AdrRestApi\DependencyInjection;
 
 use Mazi\AdrRestApi\Action\ActionLoader;
 use Mazi\AdrRestApi\Action\ActionInterface;

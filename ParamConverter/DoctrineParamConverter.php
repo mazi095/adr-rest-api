@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MiddleOffice\ParamConverter;
+namespace Mazi\AdrRestApi\ParamConverter;
 
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Mazi\AdrRestApi\Exception\ApiException;
