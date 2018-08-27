@@ -4,14 +4,14 @@ declare(strict_types=1);
 
 namespace Mazi\AdrRestApi\DTO;
 
-use Swagger\Annotations as OAS;
+use OpenApi\Annotations as OA;
 
 /**
- * @OAS\Schema(
+ * @OA\Schema(
  *     type="object",
  *     description="Структура данных ошибки запроса.",
- *     @OAS\Property(property="message", maxLength=1000, readOnly=true, type="string"),
- *     @OAS\Property(property="user_message", maxLength=1000, readOnly=true, type="string"),
+ *     @OA\Property(property="message", maxLength=1000, readOnly=true, type="string"),
+ *     @OA\Property(property="user_message", maxLength=1000, readOnly=true, type="string"),
  *     required={
  *         "message",
  *         "user_message"

@@ -4,19 +4,19 @@ declare(strict_types=1);
 
 namespace Mazi\AdrRestApi\DTO;
 
-use Swagger\Annotations as OAS;
+use OpenApi\Annotations as OA;
 
 /**
- * @OAS\Schema(
+ * @OA\Schema(
  *     type="object",
  *     description="Структура данных ошибки валидации данных.",
  *     allOf={
- *         @OAS\Schema(
+ *         @OA\Schema(
  *             ref="#/components/schemas/Error"
  *         ),
- *         @OAS\Schema(
+ *         @OA\Schema(
  *             type="object",
- *             @OAS\Property(
+ *             @OA\Property(
  *                 property="errors",
  *                 type="object",
  *                 nullable=true,
