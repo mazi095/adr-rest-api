@@ -6,6 +6,8 @@ namespace Mazi\AdrRestApi\DependencyInjection\Compiler;
 
 use Mazi\AdrRestApi\Action\ActionLoader;
 use Mazi\AdrRestApi\Action\ActionInterface;
+use Psr\Log\LoggerAwareInterface;
+use Symfony\Component\DependencyInjection\ChildDefinition;
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 
@@ -31,5 +33,10 @@ class ActionsRouteAnnotationsPass implements CompilerPassInterface
         foreach ($actions as  $id => $tags) {
             $definition->addMethodCall('addAction', [$id]);
         }
+
+        $definition = new ChildDefinition(LoggerAwareInterface::class);
+        $logger = $container->findDefinition('@logger');
+        $definition->addMethodCall('setLogger', [$logger]);
+
     }
 }
