@@ -42,7 +42,9 @@ class MaziAdrRestApiExtension extends Extension
                 ->addTag('kernel.event_subscriber');
         }
 
-        $container->register(ActionLoader::class, ActionLoader::class)->addArgument(LoaderResolverInterface::class);
+        $container->register(ActionLoader::class, ActionLoader::class)
+            ->addArgument(LoaderResolverInterface::class)
+            ->addTag('routing.loader');
 
         $container->registerForAutoconfiguration(ActionInterface::class)
             ->addTag('controller.service_arguments')

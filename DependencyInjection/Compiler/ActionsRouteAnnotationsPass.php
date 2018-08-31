@@ -34,7 +34,7 @@ class ActionsRouteAnnotationsPass implements CompilerPassInterface
             $definition->addMethodCall('addAction', [$id]);
         }
 
-        $definition->addMethodCall('loadRoutes');
+//        $definition->addMethodCall('loadRoutes');
 
 //        $definition = new ChildDefinition(LoggerAwareInterface::class);
 //        $logger = $container->findDefinition('@logger');

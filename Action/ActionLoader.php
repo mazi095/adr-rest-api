@@ -4,13 +4,14 @@ declare(strict_types=1);
 
 namespace Mazi\AdrRestApi\Action;
 
+use Symfony\Component\Config\Loader\Loader;
 use Symfony\Component\Config\Loader\LoaderResolverInterface;
 use Symfony\Component\Routing\RouteCollection;
 
 /**
  * Class ActionLoader.
  */
-class ActionLoader
+class ActionLoader extends Loader
 {
     /**
      * @var array
@@ -42,11 +43,25 @@ class ActionLoader
         return $this->actions;
     }
 
-    /**
-     * @return RouteCollection
-     * @throws \Exception
-     */
-    public function loadRoutes(): RouteCollection
+//    /**
+//     * @return RouteCollection
+//     * @throws \Exception
+//     */
+//    public function loadRoutes(): RouteCollection
+//    {
+//        $collection = new RouteCollection();
+//
+//        foreach ($this->actions as $action) {
+//            $collection->addCollection(
+//                $this->loaderResolver->resolve($action, 'annotation')
+//                    ->load($action, 'annotation')
+//            );
+//        }
+//
+//        return $collection;
+//    }
+
+    public function load($resource, $type = null)
     {
         $collection = new RouteCollection();
 
@@ -59,4 +74,11 @@ class ActionLoader
 
         return $collection;
     }
+
+    public function supports($resource, $type = null)
+    {
+        return 'api_actions' === $type;
+    }
+
+
 }
