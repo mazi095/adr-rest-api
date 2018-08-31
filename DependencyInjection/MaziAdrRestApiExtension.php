@@ -43,7 +43,6 @@ class MaziAdrRestApiExtension extends Extension
         }
 
         $container->register(ActionLoader::class, ActionLoader::class)
-            ->addArgument(LoaderResolverInterface::class)
             ->addTag('routing.loader');
 
         $container->registerForAutoconfiguration(ActionInterface::class)
