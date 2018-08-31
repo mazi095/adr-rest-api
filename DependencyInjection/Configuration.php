@@ -19,6 +19,7 @@ class Configuration implements ConfigurationInterface
                         ->scalarNode('api_response_subscriber')->defaultTrue()->end()
                     ->end()
                 ->end()
+                ->scalarNode('logger')->defaultValue('default')->end()
             ->end();
 
         return $treeBuilder;

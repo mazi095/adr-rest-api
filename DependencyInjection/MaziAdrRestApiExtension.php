@@ -6,6 +6,7 @@ namespace Mazi\AdrRestApi\DependencyInjection;
 
 use Mazi\AdrRestApi\Action\ActionInterface;
 use Mazi\AdrRestApi\EventSubscriber\ApiResponseSubscriber;
+use Psr\Log\NullLogger;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Reference;
@@ -26,13 +27,19 @@ class MaziAdrRestApiExtension extends Extension
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
 
+        if ($config['logger'] === "default"){
+            $logger = NullLogger::class;
+        }else {
+            $logger =  $config['logger'];
+        }
+        $container->register('api_logger', $logger);
+
         if ($config['subscribers']['api_response_subscriber']) {
             $container->register('Mazi\AdrRestApi\EventSubscriber\ApiResponseSubscriber', ApiResponseSubscriber::class)
                 ->addArgument(new Reference('jms_serializer'))
                 ->addArgument(new Reference(UrlGeneratorInterface::class))
-                ->addTag(
-                    'kernel.event_subscriber'
-                );
+                ->addArgument(new Reference('api_logger'))
+                ->addTag('kernel.event_subscriber');
         }
 
         $container->register(ActionLoader::class, ActionLoader::class)->addArgument(LoaderResolverInterface::class);

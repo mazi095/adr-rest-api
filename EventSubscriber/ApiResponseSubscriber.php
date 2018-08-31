@@ -9,8 +9,7 @@ use Mazi\AdrRestApi\DTO\ValidationError;
 use Mazi\AdrRestApi\Exception\ExceptionInterface;
 use JMS\Serializer\SerializerInterface;
 use Mazi\AdrRestApi\Exception\ValidationException;
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
+use Psr\Log\LoggerInterface;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,10 +21,8 @@ use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class ApiResponseSubscriber implements EventSubscriberInterface, LoggerAwareInterface
+class ApiResponseSubscriber implements EventSubscriberInterface
 {
-    use LoggerAwareTrait;
-
     /**
      * @var SerializerInterface
      */
@@ -37,13 +34,23 @@ class ApiResponseSubscriber implements EventSubscriberInterface, LoggerAwareInte
     private $urlGenerator;
 
     /**
+     * @var LoggerInterface
+     */
+    private $logger;
+
+    /**
      * @param SerializerInterface   $serializer
      * @param UrlGeneratorInterface $urlGenerator
+     * @param LoggerInterface       $logger
      */
-    public function __construct(SerializerInterface $serializer, UrlGeneratorInterface $urlGenerator)
-    {
+    public function __construct(
+        SerializerInterface $serializer,
+        UrlGeneratorInterface $urlGenerator,
+        LoggerInterface $logger
+    ) {
         $this->serializer   = $serializer;
         $this->urlGenerator = $urlGenerator;
+        $this->logger       = $logger;
     }
 
     /**
@@ -126,8 +133,8 @@ class ApiResponseSubscriber implements EventSubscriberInterface, LoggerAwareInte
             $json,
             $statusCode,
             [
-            'Content-Type' => 'application/json',
-        ],
+                'Content-Type' => 'application/json',
+            ],
             true
         );
 
