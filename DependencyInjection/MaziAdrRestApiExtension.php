@@ -10,6 +10,8 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Mazi\AdrRestApi\Action\ActionLoader;
+use Symfony\Component\Config\Loader\LoaderResolverInterface;
 
 class MaziAdrRestApiExtension extends Extension
 {
@@ -32,6 +34,8 @@ class MaziAdrRestApiExtension extends Extension
                     'kernel.event_subscriber'
                 );
         }
+
+        $container->register(ActionLoader::class, ActionLoader::class)->addArgument(LoaderResolverInterface::class);
 
         $container->registerForAutoconfiguration(ActionInterface::class)
             ->addTag('controller.service_arguments')
