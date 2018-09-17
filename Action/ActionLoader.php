@@ -56,6 +56,8 @@ class ActionLoader extends Loader
             );
         }
 
+        $this->isLoaded = true;
+
         return $collection;
     }
 

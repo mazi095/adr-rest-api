@@ -12,7 +12,6 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Mazi\AdrRestApi\Action\ActionLoader;
-use Symfony\Component\Config\Loader\LoaderResolverInterface;
 
 class MaziAdrRestApiExtension extends Extension
 {
@@ -27,10 +26,10 @@ class MaziAdrRestApiExtension extends Extension
         $configuration = new Configuration();
         $config        = $this->processConfiguration($configuration, $configs);
 
-        if ($config['logger'] === "default"){
+        if ('default' === $config['logger']) {
             $logger = NullLogger::class;
-        }else {
-            $logger =  $config['logger'];
+        } else {
+            $logger = $config['logger'];
         }
         $container->register('api_logger', $logger);
 
